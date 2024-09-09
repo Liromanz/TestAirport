@@ -17,7 +17,7 @@ namespace TestAirport
     /// </summary>
     public partial class App : Application
     {
-        public static IHost? AppHost { get; set; }
+        public static IHost? AppHost { get; private set; }
 
         public App()
         {
