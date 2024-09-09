@@ -25,7 +25,7 @@ namespace TestAirport
             {
                 services.AddSingleton<MainWindow>();
                 services.AddTransient<ILoadSaveService, PassengerService>();
-                services.AddTransient<IDataRepository>(provider => new JsonRepository(Settings.Default.PassengerJsonFile));
+                services.AddTransient<IDataRepository, JsonRepository>();
             }).Build();
         }
 

@@ -11,18 +11,14 @@ namespace TestAirport._Repositories.Implementations
 {
     public class JsonRepository : IDataRepository
     {
-        private readonly string _fileName;
-
-        public JsonRepository(string fileName)
-        {
-            _fileName = fileName;
-        }
+        private const string _fileFormat = "json";
 
         public T? LoadData<T>()
         {
-            if (File.Exists(_fileName))
+            string filename = $"{typeof(T).Name}.{_fileFormat}";
+            if (File.Exists(filename))
             {
-                var jsonString = File.ReadAllText(_fileName);
+                var jsonString = File.ReadAllText(filename);
                 return JsonSerializer.Deserialize<T>(jsonString);
             }
 
@@ -31,8 +27,10 @@ namespace TestAirport._Repositories.Implementations
 
         public void SaveData<T>(T dataToSave)
         {
+            string filename = $"{typeof(T).Name}.{_fileFormat}";
+
             var jsonString = JsonSerializer.Serialize(dataToSave);
-            File.WriteAllText(_fileName, jsonString);
+            File.WriteAllText(filename, jsonString);
         }
     }
 }
