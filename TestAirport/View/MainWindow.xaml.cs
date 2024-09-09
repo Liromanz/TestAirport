@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TestAirport._Repositories.Implementations;
 using TestAirport._Services.Implementations;
+using TestAirport._Services.Interfaces;
 using TestAirport.ViewModel;
 
 namespace TestAirport.View
@@ -19,13 +20,10 @@ namespace TestAirport.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(ILoadSaveService loadSaveService)
         {
             InitializeComponent();
-
-            //здесь говно примерно все
-            var service = new PassengerService(new JsonRepository("myfile.json"));
-            DataContext = new MainVM(service);
+            DataContext = new MainVM(loadSaveService);
         }
     }
 }

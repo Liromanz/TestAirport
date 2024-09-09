@@ -9,7 +9,7 @@ using TestAirport.Model;
 
 namespace TestAirport._Services.Implementations
 {
-    internal class PassengerService : ILoadSaveService
+    public class PassengerService : ILoadSaveService
     {
         private readonly IDataRepository _dataRepository;
 

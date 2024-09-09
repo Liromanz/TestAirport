@@ -9,7 +9,7 @@ using TestAirport._Repositories.Interfaces;
 
 namespace TestAirport._Repositories.Implementations
 {
-    internal class JsonRepository : IDataRepository
+    public class JsonRepository : IDataRepository
     {
         private readonly string _fileName;
 

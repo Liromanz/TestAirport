@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestAirport._Services.Interfaces
 {
-    internal interface ILoadSaveService
+    public interface ILoadSaveService
     {
         void Save<T>(T dataToSave);
         T? Load<T>();

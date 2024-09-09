@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestAirport._Repositories.Interfaces
 {
-    internal interface IDataRepository
+    public interface IDataRepository
     {
         void SaveData<T>(T dataToSave);
         T? LoadData<T>();
